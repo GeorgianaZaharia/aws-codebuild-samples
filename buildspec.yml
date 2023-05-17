@@ -1,7 +1,6 @@
 version: 0.2
-
 env:
-  variables:
+variables:
     PROJECT_NAME: "CodeBuild-Synopsys-Detect1"
     parameter-store:
     BLACKDUCK_URL: "https://accenture-test.app.blackduck.com/"
@@ -12,7 +11,7 @@ phases:
     commands:
       - npm install
       - curl -LOk https://detect.synopsys.com/detect.sh
-      - chmod +x ./detect.sh      
+      - chmod +x ./detect.sh
  build:
     commands:
       - npm test      

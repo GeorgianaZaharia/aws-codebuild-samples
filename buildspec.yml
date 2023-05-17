@@ -1,12 +1,29 @@
 version: 0.2
 
+env:
+  variables:
+    PROJECT_NAME: "CodeBuild-Synopsys-Detect1"
+    parameter-store:
+    BLACKDUCK_URL: "https://accenture-test.app.blackduck.com/"
+    BLACKDUCK_TOKEN: "NDI4MjdkNTgtZTliZi00N2JhLWI3YzQtMThlYzAxYmI2Y2YwOjliOGQ5ZWVjLWRlZTktNDZmZC1hODQyLTg2M2YyYWQ3YzQ0MQ=="
+    
 phases:
   install:
     commands:
       - npm install
-  build:
+      - curl -LOk https://detect.synopsys.com/detect.sh
+      - chmod +x ./detect.sh
+       
+ build:
     commands:
-      - npm test
+      - npm test     
+      
+ post_build:
+    commands:
+      - bash detect.sh --blackduck.url=$BLACKDUCK_URL --blackduck.api.token=$BLACKDUCK_TOKEN --blackduck.trust.cert=true --detect.project.name=$PROJECT_NAME --detect.project.version.name=1.0
+      
+
 artifacts:
   files:
     - '**/*'
+  discard-paths: yes

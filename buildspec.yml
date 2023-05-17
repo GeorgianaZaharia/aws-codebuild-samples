@@ -15,13 +15,11 @@ phases:
       - chmod +x ./detect.sh      
  build:
     commands:
-      - npm test     
-      
- post_build:
+      - npm test      
+post_build:
     commands:
-      - bash detect.sh --blackduck.url=$BLACKDUCK_URL --blackduck.api.token=$BLACKDUCK_TOKEN --blackduck.trust.cert=true --detect.project.name=$PROJECT_NAME --detect.project.version.name=1.0
+      - bash detect.sh --blackduck.url=$BLACKDUCK_URL --blackduck.api.token=$BLACKDUCK_TOKEN --blackduck.trust.cert=true --detect.project.name=$PROJECT_NAME --detect.project.version.name=1.0      
       
-
 artifacts:
   files:
     - '**/*'

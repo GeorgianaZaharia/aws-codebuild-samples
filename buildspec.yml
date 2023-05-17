@@ -12,8 +12,7 @@ phases:
     commands:
       - npm install
       - curl -LOk https://detect.synopsys.com/detect.sh
-      - chmod +x ./detect.sh
-       
+      - chmod +x ./detect.sh      
  build:
     commands:
       - npm test     

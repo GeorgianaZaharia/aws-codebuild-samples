@@ -4,8 +4,8 @@ env:
   variables:
     PROJECT_NAME: "CodeBuild-Synopsys-Detect"
   parameter-store:
-    BLACKDUCK_URL: "Detect-Blackduck-URL"
-    BLACKDUCK_TOKEN: "Detect-Blackduck-Token"
+    BLACKDUCK_URL: "Detect-BlackDuck-URL"
+    BLACKDUCK_TOKEN: "Detect-BlackDuck-Token"
  
 phases:
   install:

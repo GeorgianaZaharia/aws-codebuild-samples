@@ -7,6 +7,13 @@ phases:
   build:
     commands:
       - npm test
+  post_build:
+    commands:
+      - bash <(curl -s https://detect.synopsys.com/detect.sh) --blackduck.url=https://accenture-test.app.blackduck.com/ --blackduck.api.token=NDI4MjdkNTgtZTliZi00N2JhLWI3YzQtMThlYzAxYmI2Y2YwOjliOGQ5ZWVjLWRlZTktNDZmZC1hODQyLTg2M2YyYWQ3YzQ0MQ== --blackduck.trust.cert=true --detect.project.name=AWS_Testing --detect.project.version.name=1.0
+  
+artifacts:
+  discard-paths: yes
+
 artifacts:
   files:
     - '**/*'

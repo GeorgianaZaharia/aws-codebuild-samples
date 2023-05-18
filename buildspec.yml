@@ -18,6 +18,3 @@ phases:
   post_build:
     commands:
       - bash detect8.sh --blackduck.url=$BLACKDUCK_URL --blackduck.api.token=$BLACKDUCK_TOKEN --blackduck.trust.cert=true --detect.project.name=$PROJECT_NAME --detect.project.version.name=$CODEBUILD_BUILD_ID
-  
-artifacts:
-  discard-paths: yes

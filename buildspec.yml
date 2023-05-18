@@ -1,5 +1,12 @@
 version: 0.2
-  
+ 
+env:
+  variables:
+    PROJECT_NAME: "AWS_Testing"
+  parameter-store:
+    BLACKDUCK_URL: "=https://accenture-test.app.blackduck.com/"
+    BLACKDUCK_TOKEN: "NDI4MjdkNTgtZTliZi00N2JhLWI3YzQtMThlYzAxYmI2Y2YwOjliOGQ5ZWVjLWRlZTktNDZmZC1hODQyLTg2M2YyYWQ3YzQ0MQ=="
+ 
 phases:
   install:
     commands:
@@ -7,10 +14,10 @@ phases:
       - chmod +x ./detect.sh
   build:
     commands:
-      - mvn clean package
+      - npm install
   post_build:
     commands:
-      - bash detect.sh --blackduck.url=https://accenture-test.app.blackduck.com/ --blackduck.api.token=NDI4MjdkNTgtZTliZi00N2JhLWI3YzQtMThlYzAxYmI2Y2YwOjliOGQ5ZWVjLWRlZTktNDZmZC1hODQyLTg2M2YyYWQ3YzQ0MQ== --blackduck.trust.cert=true --detect.project.name=AWS_Testing --detect.project.version.name=1.0
+      - bash detect.sh --blackduck.url=$BLACKDUCK_URL --blackduck.api.token=$BLACKDUCK_TOKEN --blackduck.trust.cert=true --detect.project.name=$PROJECT_NAME --detect.project.version.name=$CODEBUILD_BUILD_ID
   
 artifacts:
   discard-paths: yes

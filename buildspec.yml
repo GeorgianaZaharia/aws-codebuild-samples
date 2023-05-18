@@ -2,10 +2,10 @@ version: 0.2
  
 env:
   variables:
-    PROJECT_NAME: "AWS_Testing"
+    PROJECT_NAME: "CodeBuild-Synopsys-Detect"
   parameter-store:
-    BLACKDUCK_URL: "=https://accenture-test.app.blackduck.com/"
-    BLACKDUCK_TOKEN: "NDI4MjdkNTgtZTliZi00N2JhLWI3YzQtMThlYzAxYmI2Y2YwOjliOGQ5ZWVjLWRlZTktNDZmZC1hODQyLTg2M2YyYWQ3YzQ0MQ=="
+    BLACKDUCK_URL: "Detect-Blackduck-URL"
+    BLACKDUCK_TOKEN: "Detect-Blackduck-Token"
  
 phases:
   install:
